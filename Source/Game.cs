@@ -16,16 +16,22 @@ namespace GameOfLife.Source
             shouldRun = true;
             Thread checkIfShouldRun = new Thread(CheckIfShouldRun);
             checkIfShouldRun.Start();
+            int count = 0;
+            string whitespace = "";
             while (shouldRun)
             {
-                Console.Write("s");
-                Thread.Sleep(1000);
+                whitespace += " ";
+                Console.Write(whitespace);
+                Console.Write("OO");
+                Thread.Sleep(900);
+                count++;
+                Console.Clear();
             }
             checkIfShouldRun.Join();
         }
         public void CheckIfShouldRun()
         {
-            while(Console.ReadKey().Key != ConsoleKey.Escape)
+            while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
                 shouldRun = true;
             }
