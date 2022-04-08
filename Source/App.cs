@@ -21,22 +21,22 @@ namespace GameOfLife.Source
             {
                 Console.SetWindowSize(120, 30);
                 Console.Clear();
-                Console.WriteLine("1. 40x35 game");
-                Console.WriteLine("2. 60x35 game");
-                Console.WriteLine("3. 80x35 game");
+                Console.WriteLine("1. 15x15 game");
+                Console.WriteLine("2. 25x25 game");
+                Console.WriteLine("3. 35x35 game");
                 Console.WriteLine("ESC to exit");
                 ConsoleKeyInfo selection = Console.ReadKey();
                 Console.WriteLine();
                 switch (selection.Key)
                 {
                     case ConsoleKey.D1:
-                        game.Play(40, 35);
+                        game.Play(15, 15);
                         break;
                     case ConsoleKey.D2:
-                        game.Play(60, 35);
+                        game.Play(25, 25);
                         break;
                     case ConsoleKey.D3:
-                        game.Play(80, 35);
+                        game.Play(35, 35);
                         break;
                     case ConsoleKey.Escape:
                         shouldRun = false;

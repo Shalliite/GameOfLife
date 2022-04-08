@@ -16,16 +16,35 @@ namespace GameOfLife.Source
             shouldRun = true;
             Thread checkIfShouldRun = new Thread(CheckIfShouldRun);
             checkIfShouldRun.Start();
-            int count = 0;
-            string whitespace = "";
+            int[,] values = new int[fieldWidth, fieldHeight];
+            for (int y = 0; y < fieldHeight; y++)
+            {
+                for (int x = 0; x < fieldWidth; x++)
+                {
+                    Random random = new Random();
+                    values[x, y] = random.Next(0, 2);
+                }
+            }
             while (shouldRun)
             {
-                whitespace += " ";
-                Console.Write(whitespace);
-                Console.Write("OO");
-                Thread.Sleep(900);
-                count++;
                 Console.Clear();
+                for (int y = 0; y < fieldHeight; y++)
+                {
+                    for (int x = 0; x < fieldWidth; x++)
+                    {
+                        if (values[x, y] != 0)
+                        {
+                            Console.Write("--");
+                        }
+                        else
+                        {
+                            Console.Write("**");
+                        }
+                    }
+                    Console.Write("\n");
+                }
+                Console.Beep(300, 100);
+                Thread.Sleep(900);
             }
             checkIfShouldRun.Join();
         }
