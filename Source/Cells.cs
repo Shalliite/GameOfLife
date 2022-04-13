@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameOfLife.Source
 {
+    /// <summary>
+    /// Class for new cells to be created.
+    /// </summary>
     public class Cells
     {
         public ushort ColumnCount { get; protected set; }
@@ -13,6 +16,10 @@ namespace GameOfLife.Source
         private bool[,] cells;
         private bool[,] nextGenerationCells;
 
+        /// <summary>
+        /// </summary>
+        /// <param name="columnCount">Cell column count.</param>
+        /// <param name="rowCount">Cell row count.</param>
         public Cells(ushort columnCount, ushort rowCount)
         {
             ColumnCount = columnCount;
@@ -20,11 +27,18 @@ namespace GameOfLife.Source
             cells = new bool[columnCount, rowCount];
         }
 
+        /// <summary>
+        /// </summary>
+        /// <returns>Cell array with data.</returns>
         public bool[,] GetCells()
         {
             return cells;
         }
 
+        /// <summary>
+        /// Function that processes main cell logic.
+        /// </summary>
+        /// <param name="sleepTime">How fast cells needs to be updated.</param>
         public void CalculateNextIteration(ushort sleepTime)
         {
             nextGenerationCells = new bool[ColumnCount, RowCount];
@@ -40,22 +54,14 @@ namespace GameOfLife.Source
                     int previousColumn = currentColumn == 0 ? ColumnCount - 1 : currentColumn - 1;
 
                     //check if there is something arround
-                    if (cells[previousColumn, currentRow])
-                        liveCellCount++;
-                    if (cells[previousColumn, previousRow])
-                        liveCellCount++;
-                    if (cells[currentColumn, previousRow])
-                        liveCellCount++;
-                    if (cells[nextColumn, previousRow])
-                        liveCellCount++;
-                    if (cells[nextColumn, currentRow])
-                        liveCellCount++;
-                    if (cells[nextColumn, nextRow])
-                        liveCellCount++;
-                    if (cells[currentColumn, nextRow])
-                        liveCellCount++;
-                    if (cells[previousColumn, nextRow])
-                        liveCellCount++;
+                    liveCellCount = cells[previousColumn, currentRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[previousColumn, previousRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[currentColumn, previousRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextColumn, previousRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextColumn, currentRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextColumn, nextRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[currentColumn, nextRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[previousColumn, nextRow] ? (ushort)1 : (ushort)0;
 
                     bool isCurrentCellAlive = false;
                     switch (liveCellCount)
@@ -79,6 +85,13 @@ namespace GameOfLife.Source
             Thread.Sleep(sleepTime);
         }
 
+        /// <summary>
+        /// Function that sets specific cells to be alive or dead.
+        /// </summary>
+        /// <param name="isAlive">Status to set.</param>
+        /// <param name="column">Which column.</param>
+        /// <param name="row">Which row.</param>
+        /// <exception cref="IndexOutOfRangeException">If given cell is not present in field.</exception>
         public void SetCellsAlive(bool isAlive, int column, int row)
         {
             if(column < 0 || row < 0 || column > ColumnCount - 1 || row > RowCount - 1)
@@ -88,6 +101,10 @@ namespace GameOfLife.Source
             cells[column, row] = isAlive;
         }
 
+        /// <summary>
+        /// Set all cells alive or dead.
+        /// </summary>
+        /// <param name="isAlive">Status to set.</param>
         public void SetCellsAlive(bool isAlive)
         {
             for (int y = 0; y < RowCount; y++)
@@ -99,6 +116,9 @@ namespace GameOfLife.Source
             }
         }
 
+        /// <summary>
+        /// Sets random cells to be alive.
+        /// </summary>
         public void SetCellsRandomAlive()
         {
             for (int y = 0; y < RowCount; y++)
@@ -111,6 +131,9 @@ namespace GameOfLife.Source
             }
         }
 
+        /// <summary>
+        /// Spawns glider.
+        /// </summary>
         public void SpawnGlider()
         {
             SetCellsAlive(true, 4, 4);
@@ -120,12 +143,18 @@ namespace GameOfLife.Source
             SetCellsAlive(true, 6, 3);
         }
 
+        /// <summary>
+        /// Spawns 1 neighbour.
+        /// </summary>
         public void Spawn1Neighbour()
         {
             SetCellsAlive(true, 4, 4);
             SetCellsAlive(true, 5, 5);
         }
 
+        /// <summary>
+        /// Spawns 2 neighbours.
+        /// </summary>
         public void Spawn2Neighbours()
         {
             SetCellsAlive(true, 4, 4);
@@ -133,6 +162,9 @@ namespace GameOfLife.Source
             SetCellsAlive(true, 6, 6);
         }
 
+        /// <summary>
+        /// Spawns 3 neighbours.
+        /// </summary>
         public void Spawn3Neighbours()
         {
             SetCellsAlive(true, 4, 4);
