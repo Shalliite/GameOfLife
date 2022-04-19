@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife.Source
+﻿namespace GameOfLife.Source
 {
     /// <summary>
     /// Class for new cells to be created.
     /// </summary>
     public class Cells
     {
+        /// <summary>
+        /// Property used to store current column count for cells.
+        /// </summary>
         public ushort ColumnCount { get; protected set; }
+        /// <summary>
+        /// Property used to store current row count for cells.
+        /// </summary>
         public ushort RowCount { get; protected set; }
         private bool[,] cells;
         private bool[,] nextGenerationCells;
 
         /// <summary>
+        /// Constructs new cell instance.
         /// </summary>
         /// <param name="columnCount">Cell column count.</param>
         /// <param name="rowCount">Cell row count.</param>
@@ -28,6 +29,7 @@ namespace GameOfLife.Source
         }
 
         /// <summary>
+        /// Gets the cell array.
         /// </summary>
         /// <returns>Cell array with data.</returns>
         public bool[,] GetCells()
@@ -46,7 +48,7 @@ namespace GameOfLife.Source
             {
                 for (int currentColumn = 0; currentColumn < ColumnCount; currentColumn++)
                 {
-                    ushort liveCellCount = 0;
+                    ushort liveCellCount;
 
                     int nextRow = currentRow == RowCount - 1 ? 0 : currentRow + 1;
                     int previousRow = currentRow == 0 ? RowCount - 1 : currentRow - 1;
@@ -98,6 +100,7 @@ namespace GameOfLife.Source
             {
                 throw new IndexOutOfRangeException("Cannot set cells outside of bounds!");
             }
+
             cells[column, row] = isAlive;
         }
 

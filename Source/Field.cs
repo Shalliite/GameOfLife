@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife.Source
+﻿namespace GameOfLife.Source
 {
     /// <summary>
     /// Class for new fields to be created.
     /// </summary>
     public class Field
     {
+        /// <summary>
+        /// Property used to store current field width.
+        /// </summary>
         public ushort FieldWidth { get; protected set; }
+        /// <summary>
+        /// Property used to store current field height.
+        /// </summary>
         public ushort FieldHeight { get; protected set; }
 
         /// <summary>
+        /// Constructor to construct new field instance.
         /// </summary>
         /// <param name="width">Field width.</param>
         /// <param name="height">Field height.</param>

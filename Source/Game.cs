@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife.Source
+﻿namespace GameOfLife.Source
 {
     /// <summary>
     /// Class for creating new game instance.
     /// </summary>
     public class Game
     {
-        Field? field;
-        Cells? cells;
+        private Field? field;
+        private Cells? cells;
         public bool shouldRun = false;
 
         /// <summary>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameOfLife.Source
+﻿namespace GameOfLife.Source
 {
     /// <summary>
     /// Class that is used to process input from the user.
