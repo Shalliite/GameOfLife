@@ -105,21 +105,6 @@
         }
 
         /// <summary>
-        /// Set all cells alive or dead.
-        /// </summary>
-        /// <param name="isAlive">Status to set.</param>
-        public void SetCellsAlive(bool isAlive)
-        {
-            for (int y = 0; y < RowCount; y++)
-            {
-                for (int x = 0; x < ColumnCount; x++)
-                {
-                    cells[x, y] = isAlive;
-                }
-            }
-        }
-
-        /// <summary>
         /// Sets random cells to be alive.
         /// </summary>
         public void SetCellsRandomAlive()
