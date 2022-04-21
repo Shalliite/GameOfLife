@@ -13,6 +13,7 @@
         /// Property used to store current field height.
         /// </summary>
         public ushort FieldHeight { get; protected set; }
+        private ushort rowToStartRenderingCells = 4;
 
         /// <summary>
         /// Constructor to construct new field instance.
@@ -31,8 +32,10 @@
         /// </summary>
         public void UpdateDimensions()
         {
+            int windowWidth = FieldWidth < 33 ? windowWidth = 33 : windowWidth = FieldWidth;
+            int windowHeight = FieldHeight + 3; //because of space to render text
 #pragma warning disable CA1416 // Validate platform compatibility
-            Console.SetWindowSize(FieldWidth, FieldHeight);
+            Console.SetWindowSize(windowWidth, windowHeight);
 #pragma warning restore CA1416 // Validate platform compatibility
         }
 
@@ -43,11 +46,15 @@
         public void Render(Cells cells)
         {
             Console.SetCursorPosition(0, 0);
+            Utilities.ClearCurrentConsoleLine();
+            Console.WriteLine($"Current generation: {cells.Generation}");
+            Utilities.ClearCurrentConsoleLine();
+            Console.WriteLine($"Current live cell count: {cells.LiveCellCount}");
             for (int currentRow = 0; currentRow < cells.RowCount; currentRow++)
             {
                 for (int currentColumn = 0; currentColumn < cells.ColumnCount; currentColumn++)
                 {
-                    if (cells.GetCells()[currentColumn, currentRow])
+                    if (cells.CellArray[currentColumn, currentRow])
                     {
                         Console.Write("#");
                     }

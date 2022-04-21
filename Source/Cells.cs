@@ -13,6 +13,18 @@
         /// Property used to store current row count for cells.
         /// </summary>
         public ushort RowCount { get; protected set; }
+        /// <summary>
+        /// Property used to store current cell count that are alive.
+        /// </summary>
+        public ushort LiveCellCount { get { return GetCurrentLiveCellCount(); } }
+        /// <summary>
+        /// Property used to store current cells.
+        /// </summary>
+        public bool[,] CellArray { get { return cells; } }
+        /// <summary>
+        /// Property used to store current generation.
+        /// </summary>
+        public uint Generation { get; protected set; } = 1;
         private bool[,] cells;
         private bool[,] nextGenerationCells;
 
@@ -29,12 +41,21 @@
         }
 
         /// <summary>
-        /// Gets the cell array.
+        /// Function that returns current live cell count.
         /// </summary>
-        /// <returns>Cell array with data.</returns>
-        public bool[,] GetCells()
+        /// <returns>Current alive cells.</returns>
+        private ushort GetCurrentLiveCellCount()
         {
-            return cells;
+            ushort liveCellCount = 0;
+            for (ushort currentRow = 0; currentRow < RowCount; currentRow++)
+            {
+                for (ushort currentColumn = 0; currentColumn < ColumnCount; currentColumn++)
+                {
+                    if (cells[currentRow, currentColumn])
+                        liveCellCount++;
+                }
+            }
+            return liveCellCount;
         }
 
         /// <summary>
@@ -82,8 +103,8 @@
                     nextGenerationCells[currentColumn, currentRow] = isCurrentCellAlive;
                 }
             }
-
             cells = nextGenerationCells;
+            Generation++;
             Thread.Sleep(sleepTime);
         }
 
