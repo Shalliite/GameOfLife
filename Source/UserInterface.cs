@@ -3,10 +3,8 @@
     /// <summary>
     /// Class that is used to process input from the user.
     /// </summary>
-    public static class UserInterface
+    public class UserInterface
     {
-        public static string errorMessageNotNumber = "Input is not a number!";
-        
         /// <summary>
         /// Function that process selection from user what kind/size of game field needs to be created.
         /// </summary>
@@ -16,13 +14,14 @@
         /// <returns>Inputed number from console.</returns>
         public static ushort ProcessInput(string description, ushort minValue, ushort maxValue)
         {
+            string errorMessageNotNumber = "Input is not a number!";
             string errorMessageNumberTooBig = $"Number too big. Should be less than: { maxValue }";
             string errorMessageNumberTooSmall = $"Number too small. Should be bigger than: { minValue }";
+#pragma warning disable CA1416 // Validate platform compatibility
+            Console.SetWindowSize(120, 30);
+#pragma warning restore CA1416 // Validate platform compatibility
             do
             {
-#pragma warning disable CA1416 // Validate platform compatibility
-                Console.SetWindowSize(120, 30);
-#pragma warning restore CA1416 // Validate platform compatibility
                 Console.Clear();
                 Console.WriteLine(description);
                 if (ushort.TryParse(Console.ReadLine(), out ushort output))
