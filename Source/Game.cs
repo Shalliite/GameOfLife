@@ -18,7 +18,7 @@
             const string fieldHeightInfo = "Enter game field height (4 - 35 characters long)";
             ushort fieldWidth = UserInterface.ProcessInput(fieldWidthInfo, 4, 120);
             ushort fieldHeight = UserInterface.ProcessInput(fieldHeightInfo, 4, 35);
-            field = new Field(fieldWidth, fieldHeight);
+            field = new Field();
             cells = new Cells(fieldWidth, fieldHeight);
             shouldRun = true;
             Thread checkIfShouldRun = new Thread(CheckIfShouldRun);
