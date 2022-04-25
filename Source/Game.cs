@@ -5,8 +5,8 @@
     /// </summary>
     public class Game
     {
-        private Field? field;
-        private Cells? cells;
+        private Field field;
+        private Cells cells;
         public bool shouldRun = false;
 
         /// <summary>
@@ -14,26 +14,20 @@
         /// </summary>
         public void Play()
         {
-            ushort fieldWidth = UserInterface.ProcessInput("Enter game field width (4 - 120 characters long)", 4, 120);
-            ushort fieldHeight = UserInterface.ProcessInput("Enter game field height (4 - 35 characters long)", 4, 35);
+            const string fieldWidthInfo = "Enter game field width (4 - 120 characters long)";
+            const string fieldHeightInfo = "Enter game field height (4 - 35 characters long)";
+            ushort fieldWidth = UserInterface.ProcessInput(fieldWidthInfo, 4, 120);
+            ushort fieldHeight = UserInterface.ProcessInput(fieldHeightInfo, 4, 35);
             field = new Field(fieldWidth, fieldHeight);
             cells = new Cells(fieldWidth, fieldHeight);
             shouldRun = true;
             Thread checkIfShouldRun = new Thread(CheckIfShouldRun);
             checkIfShouldRun.Start();
-
-            //==================================
-            //======SPAWN NEW THINGS HERE=======
-
-            //cells.SpawnGlider();
             cells.SetCellsRandomAlive();
-
-            //==================================
-            //==================================
 
             while (shouldRun)
             {
-                field.UpdateDimensions();
+                field.UpdateDimensions(fieldWidth, fieldHeight);
                 field.Render(cells);
                 cells.CalculateNextIteration(900);
             }
