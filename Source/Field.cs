@@ -31,11 +31,8 @@
         /// Function that renders game field to show in console.
         /// </summary>
         /// <param name="cells">Cells to render on screen.</param>
-        public void Render(Cells cells)
+        public void Render(Cells cells, Resources res)
         {
-            const char aliveCell = '#';
-            const char deadCell = '.';
-            const char newLine = '\n';
             Console.SetCursorPosition(0, 0);
             Utilities.ClearCurrentConsoleLine();
             Console.WriteLine($"Current generation: {cells.Generation}");
@@ -47,14 +44,14 @@
                 {
                     if (cells.CellArray[currentRow, currentColumn])
                     {
-                        Console.Write(aliveCell);
+                        Console.Write(res.AliveCell);
                     }
                     else
                     {
-                        Console.Write(deadCell);
+                        Console.Write(res.DeadCell);
                     }
                 }
-                Console.Write(newLine);
+                Console.Write('\n');
             }
         }
     }
