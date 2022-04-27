@@ -18,7 +18,7 @@
         /// <param name="rowCount">Cell row count.</param>
         public Cells(ushort columnCount, ushort rowCount)
         {
-            cells = new bool[columnCount, rowCount];
+            cells = new bool[rowCount, columnCount];
         }
 
         /// <summary>
@@ -36,7 +36,7 @@
         /// <param name="sleepTime">How fast cells needs to be updated.</param>
         public void CalculateNextIteration(ushort sleepTime)
         {
-            bool[,] nextGenerationCells = new bool[cells.GetLength(1), cells.GetLength(0)];
+            bool[,] nextGenerationCells = new bool[cells.GetLength(0), cells.GetLength(1)];
             for (int currentRow = 0; currentRow < cells.GetLength(0); currentRow++)
             {
 
@@ -50,14 +50,14 @@
                     int previousColumn = currentColumn == 0 ? cells.GetLength(1) - 1 : currentColumn - 1;
 
                     //check if there is something arround
-                    liveCellCount = cells[previousColumn, currentRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[previousColumn, previousRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[currentColumn, previousRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[nextColumn, previousRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[nextColumn, currentRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[nextColumn, nextRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[currentColumn, nextRow] ? (ushort)1 : (ushort)0;
-                    liveCellCount += cells[previousColumn, nextRow] ? (ushort)1 : (ushort)0;
+                    liveCellCount = cells[currentRow, previousColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[previousRow, previousColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[previousRow, currentColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[previousRow, nextColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[currentRow, nextColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextRow, nextColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextRow, currentColumn] ? (ushort)1 : (ushort)0;
+                    liveCellCount += cells[nextRow, previousColumn] ? (ushort)1 : (ushort)0;
 
                     bool isCurrentCellAlive = false;
                     switch (liveCellCount)
@@ -66,14 +66,14 @@
                             isCurrentCellAlive = true;
                             break;
                         case 2:
-                            if (cells[currentColumn, currentRow])
+                            if (cells[currentRow, currentColumn])
                             {
                                 isCurrentCellAlive = true;
                             }
                             break;
                     }
 
-                    nextGenerationCells[currentColumn, currentRow] = isCurrentCellAlive;
+                    nextGenerationCells[currentRow, currentColumn] = isCurrentCellAlive;
                 }
             }
 
@@ -89,7 +89,7 @@
         /// <param name="row">Which row.</param>
         public void SetCellsAlive(bool isAlive, int column, int row)
         {
-            cells[column, row] = isAlive;
+            cells[row, column] = isAlive;
         }
 
         /// <summary>
@@ -102,7 +102,7 @@
                 for (int x = 0; x < cells.GetLength(1); x++)
                 {
                     Random random = new Random();
-                    cells[x, y] = random.Next(2) == 0;
+                    cells[y, x] = random.Next(2) == 0;
                 }
             }
         }

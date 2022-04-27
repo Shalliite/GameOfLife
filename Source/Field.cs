@@ -29,26 +29,23 @@
         /// Function that renders game field to show in console.
         /// </summary>
         /// <param name="cells">Cells to render on screen.</param>
-        public void Render(Cells cells)
+        public void Render(Cells cells, Resources res)
         {
-            const char aliveCell = '#';
-            const char deadCell = '.';
-            const char newLine = '\n';
             Console.SetCursorPosition(0, 0);
             for (int currentRow = 0; currentRow < cells.CellArray.GetLength(0); currentRow++)
             {
                 for (int currentColumn = 0; currentColumn < cells.CellArray.GetLength(1); currentColumn++)
                 {
-                    if (cells.GetCells()[currentColumn, currentRow])
+                    if (cells.GetCells()[currentRow, currentColumn])
                     {
-                        Console.Write(aliveCell);
+                        Console.Write(res.AliveCell);
                     }
                     else
                     {
-                        Console.Write(deadCell);
+                        Console.Write(res.DeadCell);
                     }
                 }
-                Console.Write(newLine);
+                Console.Write('\n');
             }
         }
     }

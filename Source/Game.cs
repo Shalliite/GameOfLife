@@ -5,6 +5,7 @@
     /// </summary>
     public class Game
     {
+        private Resources _resources;
         private Field field;
         private Cells cells;
         public bool shouldRun = false;
@@ -14,10 +15,9 @@
         /// </summary>
         public void Play()
         {
-            const string fieldWidthInfo = "Enter game field width (4 - 120 characters long)";
-            const string fieldHeightInfo = "Enter game field height (4 - 35 characters long)";
-            ushort fieldWidth = UserInterface.ProcessInput(fieldWidthInfo, 4, 120);
-            ushort fieldHeight = UserInterface.ProcessInput(fieldHeightInfo, 4, 35);
+            _resources = new Resources();
+            ushort fieldWidth = UserInterface.ProcessInput(_resources.EnterGameFieldWidthInfo, _resources.MinimumFieldWidth, _resources.MaximumFieldWidth, _resources);
+            ushort fieldHeight = UserInterface.ProcessInput(_resources.EnterGameFieldHeightInfo, _resources.MinimumFieldHeight, _resources.MaximumFieldHeight, _resources);
             field = new Field(fieldWidth, fieldHeight);
             cells = new Cells(fieldWidth, fieldHeight);
             shouldRun = true;
@@ -28,7 +28,7 @@
             while (shouldRun)
             {
                 field.UpdateDimensions(fieldWidth, fieldHeight);
-                field.Render(cells);
+                field.Render(cells, _resources);
                 cells.CalculateNextIteration(900);
             }
 

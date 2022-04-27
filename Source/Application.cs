@@ -3,7 +3,7 @@
     /// <summary>
     /// This is the main class, where the program starts.
     /// </summary>
-    public class App
+    public class Application
     {
         /// <summary>
         /// Main function.

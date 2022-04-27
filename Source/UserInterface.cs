@@ -12,11 +12,8 @@
         /// <param name="minValue">Smallest size for field.</param>
         /// <param name="maxValue">Biggest size for field.</param>
         /// <returns>Inputed number from console.</returns>
-        public static ushort ProcessInput(string description, ushort minValue, ushort maxValue)
+        public static ushort ProcessInput(string description, ushort minValue, ushort maxValue, Resources res)
         {
-            string errorMessageNotNumber = "Input is not a number!";
-            string errorMessageNumberTooBig = $"Number too big. Should be less than: { maxValue }";
-            string errorMessageNumberTooSmall = $"Number too small. Should be bigger than: { minValue }";
 #pragma warning disable CA1416 // Validate platform compatibility
             Console.SetWindowSize(120, 30);
 #pragma warning restore CA1416 // Validate platform compatibility
@@ -28,12 +25,12 @@
                 {
                     if (output < minValue)
                     {
-                        Console.WriteLine(errorMessageNumberTooSmall);
+                        Console.WriteLine(res.ErrorMessageNumberTooSmall, minValue);
                         Console.ReadKey();
                     }
                     else if (output > maxValue)
                     {
-                        Console.WriteLine(errorMessageNumberTooBig);
+                        Console.WriteLine(res.ErrorMessageNumberTooBig, maxValue);
                         Console.ReadKey();
                     }
                     else
@@ -43,7 +40,7 @@
                 }
                 else
                 {
-                    Console.WriteLine(errorMessageNotNumber);
+                    Console.WriteLine(res.ErrorMessageNotANumber);
                     Console.ReadKey();
                 }
             }
