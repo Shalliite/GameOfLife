@@ -20,8 +20,8 @@
         /// </summary>
         public void UpdateDimensions(ushort width, ushort height)
         {
-            int windowWidth = width < Resources.Resources.GameMinimumConsoleWidth ? windowWidth = Resources.Resources.GameMinimumConsoleWidth : windowWidth = width;
-            int windowHeight = height + Resources.Resources.TextHeightInGame; //because of space to render text
+            int windowWidth = width < ushort.Parse(Resources.Resources.GameMinimumConsoleWidth) ? windowWidth = ushort.Parse(Resources.Resources.GameMinimumConsoleWidth) : windowWidth = width;
+            int windowHeight = height + ushort.Parse(Resources.Resources.TextHeightInGame); //because of space to render text
 #pragma warning disable CA1416 // Validate platform compatibility
             Console.SetWindowSize(windowWidth, windowHeight);
 #pragma warning restore CA1416 // Validate platform compatibility

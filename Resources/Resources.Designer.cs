@@ -83,7 +83,7 @@ namespace GameOfLife.Resources {
         /// </summary>
         internal static string EnterGameFieldHeightInfo {
             get {
-                return string.Format(ResourceManager.GetString("EnterGameFieldHeightInfo", resourceCulture), MinimumGameFieldHeight, MaximumGameFieldHeight);
+                return ResourceManager.GetString("EnterGameFieldHeightInfo", resourceCulture);
             }
         }
         
@@ -92,7 +92,7 @@ namespace GameOfLife.Resources {
         /// </summary>
         internal static string EnterGameFieldWidthInfo {
             get {
-                return string.Format(ResourceManager.GetString("EnterGameFieldWidthInfo", resourceCulture), MinimumGameFieldWidth, MaximumGameFieldWidth);
+                return ResourceManager.GetString("EnterGameFieldWidthInfo", resourceCulture);
             }
         }
         
@@ -144,72 +144,72 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to 33.
         /// </summary>
-        internal static ushort GameMinimumConsoleWidth {
+        internal static string GameMinimumConsoleWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("GameMinimumConsoleWidth", resourceCulture));
+                return ResourceManager.GetString("GameMinimumConsoleWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 35.
         /// </summary>
-        internal static ushort MaximumGameFieldHeight {
+        internal static string MaximumGameFieldHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("MaximumGameFieldHeight", resourceCulture));
+                return ResourceManager.GetString("MaximumGameFieldHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 120.
         /// </summary>
-        internal static ushort MaximumGameFieldWidth {
+        internal static string MaximumGameFieldWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("MaximumGameFieldWidth", resourceCulture));
+                return ResourceManager.GetString("MaximumGameFieldWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
-        internal static ushort MinimumGameFieldHeight {
+        internal static string MinimumGameFieldHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("MinimumGameFieldHeight", resourceCulture));
+                return ResourceManager.GetString("MinimumGameFieldHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
-        internal static ushort MinimumGameFieldWidth {
+        internal static string MinimumGameFieldWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("MinimumGameFieldWidth", resourceCulture));
+                return ResourceManager.GetString("MinimumGameFieldWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 30.
         /// </summary>
-        internal static ushort StandardConsoleHeight {
+        internal static string StandardConsoleHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("StandardConsoleHeight", resourceCulture));
+                return ResourceManager.GetString("StandardConsoleHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 120.
         /// </summary>
-        internal static ushort StandardConsoleWidth {
+        internal static string StandardConsoleWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("StandardConsoleWidth", resourceCulture));
+                return ResourceManager.GetString("StandardConsoleWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3.
         /// </summary>
-        internal static ushort TextHeightInGame {
+        internal static string TextHeightInGame {
             get {
-                return ushort.Parse(ResourceManager.GetString("TextHeightInGame", resourceCulture));
+                return ResourceManager.GetString("TextHeightInGame", resourceCulture);
             }
         }
     }

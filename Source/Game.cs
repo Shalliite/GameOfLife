@@ -1,5 +1,6 @@
 ﻿namespace GameOfLife.Source
 {
+    using GameOfLife.Resources;
     /// <summary>
     /// Class for creating new game instance.
     /// </summary>
@@ -14,8 +15,14 @@
         /// </summary>
         public void Play()
         {
-            ushort fieldWidth = UserInterface.ProcessInput(Resources.Resources.EnterGameFieldWidthInfo, Resources.Resources.MinimumGameFieldWidth, Resources.Resources.MaximumGameFieldWidth);
-            ushort fieldHeight = UserInterface.ProcessInput(Resources.Resources.EnterGameFieldHeightInfo, Resources.Resources.MinimumGameFieldHeight, Resources.Resources.MaximumGameFieldHeight);
+            ushort fieldWidth = UserInterface.ProcessInput(
+                Resources.EnterGameFieldWidthInfo,
+                ushort.Parse(Resources.MinimumGameFieldWidth),
+                ushort.Parse(Resources.MaximumGameFieldWidth));
+            ushort fieldHeight = UserInterface.ProcessInput(
+                Resources.EnterGameFieldHeightInfo,
+                ushort.Parse(Resources.MinimumGameFieldHeight),
+                ushort.Parse(Resources.MaximumGameFieldHeight));
             field = new Field();
             cells = new Cells(fieldWidth, fieldHeight);
             shouldRun = true;
