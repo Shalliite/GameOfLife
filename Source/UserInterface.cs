@@ -12,7 +12,7 @@
         /// <param name="minValue">Smallest size for field.</param>
         /// <param name="maxValue">Biggest size for field.</param>
         /// <returns>Inputed number from console.</returns>
-        public static ushort ProcessInput(string description, ushort minValue, ushort maxValue, Resources res)
+        public static ushort ProcessInput(string description, ushort minValue, ushort maxValue)
         {
 #pragma warning disable CA1416 // Validate platform compatibility
             Console.SetWindowSize(120, 30);
@@ -25,12 +25,12 @@
                 {
                     if (output < minValue)
                     {
-                        Console.WriteLine(res.ErrorMessageNumberTooSmall, minValue);
+                        Console.WriteLine(Resources.Resources.ErrorMessageNumberTooSmall, minValue);
                         Console.ReadKey();
                     }
                     else if (output > maxValue)
                     {
-                        Console.WriteLine(res.ErrorMessageNumberTooBig, maxValue);
+                        Console.WriteLine(Resources.Resources.ErrorMessageNumberTooBig, maxValue);
                         Console.ReadKey();
                     }
                     else
@@ -40,7 +40,7 @@
                 }
                 else
                 {
-                    Console.WriteLine(res.ErrorMessageNotANumber);
+                    Console.WriteLine(Resources.Resources.ErrorMessageNotANumber);
                     Console.ReadKey();
                 }
             }

@@ -5,7 +5,6 @@
     /// </summary>
     public class Game
     {
-        private Resources _resources;
         private Field field;
         private Cells cells;
         public bool shouldRun = false;
@@ -15,10 +14,9 @@
         /// </summary>
         public void Play()
         {
-            _resources = new Resources();
-            ushort fieldWidth = UserInterface.ProcessInput(_resources.EnterGameFieldWidthInfo, _resources.MinimumFieldWidth, _resources.MaximumFieldWidth, _resources);
-            ushort fieldHeight = UserInterface.ProcessInput(_resources.EnterGameFieldHeightInfo, _resources.MinimumFieldHeight, _resources.MaximumFieldHeight, _resources);
-            field = new Field(fieldWidth, fieldHeight);
+            ushort fieldWidth = UserInterface.ProcessInput(Resources.Resources.EnterGameFieldWidthInfo, Resources.Resources.MinimumGameFieldWidth, Resources.Resources.MaximumGameFieldWidth);
+            ushort fieldHeight = UserInterface.ProcessInput(Resources.Resources.EnterGameFieldHeightInfo, Resources.Resources.MinimumGameFieldHeight, Resources.Resources.MaximumGameFieldHeight);
+            field = new Field();
             cells = new Cells(fieldWidth, fieldHeight);
             shouldRun = true;
             Thread checkIfShouldRun = new Thread(CheckIfShouldRun);
@@ -28,7 +26,7 @@
             while (shouldRun)
             {
                 field.UpdateDimensions(fieldWidth, fieldHeight);
-                field.Render(cells, _resources);
+                field.Render(cells);
                 cells.CalculateNextIteration(900);
             }
 
