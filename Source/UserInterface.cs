@@ -14,13 +14,14 @@
         /// <returns>Inputed number from console.</returns>
         public static ushort ProcessInput(string description, ushort minValue, ushort maxValue)
         {
+            string processedDescription = string.Format(description, minValue, maxValue);
 #pragma warning disable CA1416 // Validate platform compatibility
             Console.SetWindowSize(120, 30);
 #pragma warning restore CA1416 // Validate platform compatibility
             do
             {
                 Console.Clear();
-                Console.WriteLine(description);
+                Console.WriteLine(processedDescription);
                 if (ushort.TryParse(Console.ReadLine(), out ushort output))
                 {
                     if (output < minValue)

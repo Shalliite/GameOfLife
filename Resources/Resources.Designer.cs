@@ -22,7 +22,7 @@ namespace GameOfLife.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace GameOfLife.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GameOfLife.Resources.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace GameOfLife.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to #.
         /// </summary>
-        internal static string AliveCell {
+        public static string AliveCell {
             get {
                 return ResourceManager.GetString("AliveCell", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ..
         /// </summary>
-        internal static string DeadCell {
+        public static string DeadCell {
             get {
                 return ResourceManager.GetString("DeadCell", resourceCulture);
             }
@@ -81,25 +81,25 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter game field height ({0} - {1} characters long).
         /// </summary>
-        internal static string EnterGameFieldHeightInfo {
+        public static string EnterGameFieldHeightInfo {
             get {
-                return string.Format(ResourceManager.GetString("EnterGameFieldHeightInfo", resourceCulture), MinimumGameFieldHeight, MaximumGameFieldHeight);
+                return ResourceManager.GetString("EnterGameFieldHeightInfo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter game field width ({0} - {1} characters long).
         /// </summary>
-        internal static string EnterGameFieldWidthInfo {
+        public static string EnterGameFieldWidthInfo {
             get {
-                return string.Format(ResourceManager.GetString("EnterGameFieldWidthInfo", resourceCulture), MinimumGameFieldWidth, MaximumGameFieldWidth);
+                return ResourceManager.GetString("EnterGameFieldWidthInfo", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Input is not a number!.
         /// </summary>
-        internal static string ErrorMessageNotANumber {
+        public static string ErrorMessageNotANumber {
             get {
                 return ResourceManager.GetString("ErrorMessageNotANumber", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Number too big. Should be smaller than: {0}.
         /// </summary>
-        internal static string ErrorMessageNumberTooBig {
+        public static string ErrorMessageNumberTooBig {
             get {
                 return ResourceManager.GetString("ErrorMessageNumberTooBig", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Number too small. Should be bigger than: {0}.
         /// </summary>
-        internal static string ErrorMessageNumberTooSmall {
+        public static string ErrorMessageNumberTooSmall {
             get {
                 return ResourceManager.GetString("ErrorMessageNumberTooSmall", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Current live cell count: {0}.
         /// </summary>
-        internal static string GameAliveCellDisplayInfo {
+        public static string GameAliveCellDisplayInfo {
             get {
                 return ResourceManager.GetString("GameAliveCellDisplayInfo", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Current generation: {0}.
         /// </summary>
-        internal static string GameGenerationDisplayInfo {
+        public static string GameGenerationDisplayInfo {
             get {
                 return ResourceManager.GetString("GameGenerationDisplayInfo", resourceCulture);
             }
@@ -144,72 +144,72 @@ namespace GameOfLife.Resources {
         /// <summary>
         ///   Looks up a localized string similar to 33.
         /// </summary>
-        internal static ushort GameMinimumConsoleWidth {
+        public static string GameMinimumConsoleWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("GameMinimumConsoleWidth", resourceCulture));
+                return ResourceManager.GetString("GameMinimumConsoleWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 35.
         /// </summary>
-        internal static ushort MaximumGameFieldHeight {
+        public static string MaximumGameFieldHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("MaximumGameFieldHeight", resourceCulture));
+                return ResourceManager.GetString("MaximumGameFieldHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 120.
         /// </summary>
-        internal static ushort MaximumGameFieldWidth {
+        public static string MaximumGameFieldWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("MaximumGameFieldWidth", resourceCulture));
+                return ResourceManager.GetString("MaximumGameFieldWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
-        internal static ushort MinimumGameFieldHeight {
+        public static string MinimumGameFieldHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("MinimumGameFieldHeight", resourceCulture));
+                return ResourceManager.GetString("MinimumGameFieldHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
-        internal static ushort MinimumGameFieldWidth {
+        public static string MinimumGameFieldWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("MinimumGameFieldWidth", resourceCulture));
+                return ResourceManager.GetString("MinimumGameFieldWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 30.
         /// </summary>
-        internal static ushort StandardConsoleHeight {
+        public static string StandardConsoleHeight {
             get {
-                return ushort.Parse(ResourceManager.GetString("StandardConsoleHeight", resourceCulture));
+                return ResourceManager.GetString("StandardConsoleHeight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 120.
         /// </summary>
-        internal static ushort StandardConsoleWidth {
+        public static string StandardConsoleWidth {
             get {
-                return ushort.Parse(ResourceManager.GetString("StandardConsoleWidth", resourceCulture));
+                return ResourceManager.GetString("StandardConsoleWidth", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3.
         /// </summary>
-        internal static ushort TextHeightInGame {
+        public static string TextHeightInGame {
             get {
-                return ushort.Parse(ResourceManager.GetString("TextHeightInGame", resourceCulture));
+                return ResourceManager.GetString("TextHeightInGame", resourceCulture);
             }
         }
     }
