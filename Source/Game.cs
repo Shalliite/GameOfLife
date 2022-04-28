@@ -4,7 +4,7 @@
     /// <summary>
     /// Class for creating new game instance.
     /// </summary>
-    public class Game
+    public class Game : IGame
     {
         private Field field;
         private Cells cells;

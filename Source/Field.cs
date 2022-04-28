@@ -3,7 +3,7 @@
     /// <summary>
     /// Class for new fields to be created.
     /// </summary>
-    public class Field
+    public class Field : IField
     {
         /// <summary>
         /// Constructor to construct new field instance.
