@@ -3,7 +3,7 @@
     /// <summary>
     /// Class for new cells to be created.
     /// </summary>
-    public class Cells
+    public class Cells : ICells
     {
         /// <summary>
         /// Property that stores cells.
